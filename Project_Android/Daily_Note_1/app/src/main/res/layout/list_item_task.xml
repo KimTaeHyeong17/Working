@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        >
+        <TextView
+            android:id="@+id/list_item_task_textview"
+            android:layout_width="74dp"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:textSize="10dp"
+            android:gravity="center"
+            android:text="시간"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#005090"/>
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:hint="할일을 입력하세요"
+            android:background="@android:color/transparent"
+            android:textAppearance="?android:textAppearanceLarge"
+            />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#005090"/>
+        <CheckBox
+            android:id="@+id/list_item_task_done_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <View
+        android:layout_below="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_centerInParent="true"
+        android:background="#005090"
+        />
+</RelativeLayout>
+
+

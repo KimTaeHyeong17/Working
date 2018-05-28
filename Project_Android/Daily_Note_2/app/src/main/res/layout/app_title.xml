@@ -1,0 +1,32 @@
+
+<!--title-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="#005090"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_option"
+
+
+        />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:src="@drawable/icon_daily_note" />
+
+    <ImageButton
+        android:id="@+id/btnHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_calendar" />
+</LinearLayout>

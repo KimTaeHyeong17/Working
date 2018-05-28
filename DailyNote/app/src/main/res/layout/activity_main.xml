@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <!-- main screen -->
+    <LinearLayout
+        android:id="@+id/main_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!-- title bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/layer_under_line"
+            android:backgroundTint="@color/colorPrimary"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="6">
+
+            <ImageButton
+                android:id="@+id/btn_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:src="@drawable/icon_menu" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:src="@drawable/icon_title" />
+
+            <ImageButton
+                android:id="@+id/btn_calendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:src="@drawable/icon_calendar" />
+        </LinearLayout>
+
+        <!-- calendar -->
+        <CalendarView
+            android:id="@+id/calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"></CalendarView>
+
+        <!-- date -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/today_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="오늘날짜"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+        <!-- 시간 계획 체크 표시-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/layer_under_line"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="74dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="시간"
+                android:textSize="15dp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:background="#005090" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:hint="계획"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textSize="15dp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:background="#005090" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="체크"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ListView
+                android:id="@+id/listview1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:choiceMode="multipleChoice" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- drawer -->
+
+    <LinearLayout
+        android:id="@+id/drawer"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_lookback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:text="돌아보기"
+            android:textColor="@color/colorPrimary" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:text="개발자소개"
+            android:textColor="@color/colorPrimary" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:text="도움말"
+            android:textColor="@color/colorPrimary" />
+
+    </LinearLayout>
+
+    <!-- fab -->
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="300dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/colorPrimary"
+        app:rippleColor="@color/colorAccent"
+        app:fabSize="normal"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="310dp"
+        android:layout_marginBottom="100dp"
+        android:background="@color/colorPrimary"
+        app:rippleColor="@color/colorAccent"
+        app:fabSize="mini"
+        android:visibility="invisible"/>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="310dp"
+        android:layout_marginBottom="150dp"
+        android:background="@color/colorPrimary"
+        app:rippleColor="@color/colorAccent"
+        app:fabSize="mini"
+        android:visibility="invisible"/>
+
+
+</FrameLayout>
