@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:padding="5dp">
 
-        <TabWidget
+        <TableLayout
             android:id="@+id/tabs"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" />

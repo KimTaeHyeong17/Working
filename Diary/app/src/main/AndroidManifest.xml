@@ -16,6 +16,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--일기쓰기-->
+        <activity android:name=".WriteDiaryActivity">
+
+        </activity>
+        <!--일기보기-->
+        <activity android:name=".ShowMyData">
+
+        </activity>
+        <!--일기수정하기-->
+        <activity android:name=".ModifyMyData">
+
+        </activity>
+        <!--앱도움말-->
+        <activity android:name=".AppHelpActivity">
+
+        </activity>
     </application>
 
 </manifest>

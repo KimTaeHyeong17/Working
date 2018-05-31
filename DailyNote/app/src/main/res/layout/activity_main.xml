@@ -115,17 +115,17 @@
 
         </LinearLayout>
 
-        <LinearLayout
+
+        <TextView
+            android:id="@+id/text"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-            <ListView
-                android:id="@+id/listview1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:choiceMode="multipleChoice" />
 
-        </LinearLayout>
+
+
 
     </LinearLayout>
 
@@ -163,7 +163,8 @@
 
     </LinearLayout>
 
-    <!-- fab -->
+
+    <!-- fab
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -171,32 +172,23 @@
         android:layout_gravity="bottom"
         android:layout_marginLeft="300dp"
         android:layout_marginBottom="30dp"
-        android:background="@color/colorPrimary"
-        app:rippleColor="@color/colorAccent"
-        app:fabSize="normal"/>
+        android:backgroundTint="@color/colorPrimary"
+        app:fabSize="normal"
+        android:src="@drawable/icon_plus"
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+  /> -->
+
+    <Button
+        android:id="@+id/tmpbtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_gravity="bottom"
-        android:layout_marginLeft="310dp"
-        android:layout_marginBottom="100dp"
-        android:background="@color/colorPrimary"
-        app:rippleColor="@color/colorAccent"
-        app:fabSize="mini"
-        android:visibility="invisible"/>
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginLeft="310dp"
-        android:layout_marginBottom="150dp"
-        android:background="@color/colorPrimary"
-        app:rippleColor="@color/colorAccent"
-        app:fabSize="mini"
-        android:visibility="invisible"/>
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="280dp"
+        android:background="@drawable/circle_border"
+        android:onClick="mOnClick" />
+
+
 
 
 </FrameLayout>

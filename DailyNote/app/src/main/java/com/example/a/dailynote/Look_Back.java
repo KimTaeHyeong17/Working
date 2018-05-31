@@ -1,7 +1,10 @@
 package com.example.a.dailynote;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -14,6 +17,7 @@ public class Look_Back extends AppCompatActivity {
     SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd");
     TextView mTextView;
 
+    TextView text1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +27,6 @@ public class Look_Back extends AppCompatActivity {
         //bind view 날짜 나타내기
         mTextView = (TextView) findViewById(R.id.today_date_back);
         mTextView.setText(getTime());
-
 
 
     }

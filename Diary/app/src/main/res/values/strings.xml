@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">My_Diary</string>
+    <string name="mdate">날짜</string>
+    <string name="mcontent">일기쓰기</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.example.a.my_diary;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -70,13 +71,55 @@ public class ShowMyData extends Activity {
         date.setText(diary_content);
         t1.setText(diary_date);
     }
-    public  void previousData(View v){
+
+    public void previousData(View v) {
         try {
             DBManager dbmgr = new DBManager(this);
             SQLiteDatabase sdb = dbmgr.getReadableDatabase();
-            cursor = sdb.query("diaryTB",null,null,null,null,null,null);
+            cursor = sdb.query("diaryTB", null, null, null, null, null, null);
             //564페이지 if문
+            if (numberOfData == 0) nowData = 0;
+            if (cursor.getCount() > 0 && nowData > 1) {
+                nowData = -1;
+                if (nowData <= 1) nowData = 1;
+                cursor.moveToPosition(nowData - 1);
+                diary_content = cursor.getString(0);
+                diary_date = cursor.getString(1);
+            }
+            cursor.close();
+            dbmgr.close();
+        } catch (SQLiteException e) {
         }
+        date.setText(diary_content);
+        t1.setText(diary_date);
+    }
+
+    public void deleteData(View v) {
+        if (numberOfData >= 1)
+            try {
+                DBManager dbmgr = new DBManager(this);
+                SQLiteDatabase sdb;
+                sdb = dbmgr.getWritableDatabase();
+                cursor = sdb.query("diaryTB", null, null, null, null, null, null);
+                cursor.moveToPosition(nowData - 1);
+                diary_content = cursor.getString(0);
+                nowData -= 1;
+                String sql = String.format("DELETE FROM diaryTB WHERE data1 = '%s'", diary_content);
+                sdb.execSQL(sql);
+                cursor.close();
+                dbmgr.close();
+            } catch (SQLiteException e) {
+            }
+
+    }
+    public void modifyData(View v) {
+        Intent it = new Intent();
+        it = new Intent(this,ModifyMyData.class);
+        String msg = nowData + "";
+        it.putExtra("it_name",msg);
+
+        startActivity(it);
+        finish();
     }
 }
 
