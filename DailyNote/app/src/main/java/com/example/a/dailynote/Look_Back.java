@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,7 +18,6 @@ public class Look_Back extends AppCompatActivity {
     SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd");
     TextView mTextView;
 
-    TextView text1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,4 +37,6 @@ public class Look_Back extends AppCompatActivity {
         mDate = new Date(mNow);
         return mFormat.format(mDate);
     }
+
+
 }

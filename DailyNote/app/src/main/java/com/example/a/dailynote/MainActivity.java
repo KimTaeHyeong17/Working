@@ -3,6 +3,7 @@ package com.example.a.dailynote;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.media.Image;
 import android.nfc.Tag;
@@ -52,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
     //floatingActionButton
     //  FloatingActionButton fab;
 
+    //DBhelper
+    DatabaseHelper myDb;
+    EditText editName, editSubname, editMarks;
+    Button btnAddData;
+    Button btnviewAll;
+
     //alert dialog
     TextView text;
     String str = "";
@@ -78,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "돌아보기", 1000).show();
                 Intent MyIntent = new Intent(MainActivity.this, Look_Back.class);
-                getIntent().putExtra("strbox",str);
                 startActivity(MyIntent);
             }
         });
@@ -93,14 +99,24 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }); */
-          text = (TextView) findViewById(R.id.text);
+        text = (TextView) findViewById(R.id.text);
 
+        //db
+        myDb = new DatabaseHelper(this);
+
+        editName = (EditText) findViewById(R.id.editText_name);
+        editSubname = (EditText) findViewById(R.id.editText_subname);
+        editMarks = (EditText) findViewById(R.id.editText_Marks);
+        btnAddData = (Button) findViewById(R.id.button_add);
+        btnviewAll = (Button) findViewById(R.id.button_viewAll);
+        AddData();
+        viewAll();
 
     } //oncreate
 
     //onClick 속성이 부여된 View를 클릭했을 때 자동으로 호출되는 메소드
 
-    public void mOnClick(View v) {
+   /* public void mOnClick(View v) {
 
         switch (v.getId()) {
             case R.id.tmpbtn://멤버 추가(데이터 추가)
@@ -114,8 +130,8 @@ public class MainActivity extends AppCompatActivity {
                 //멤버의 세부내역 입력 Dialog 생성 및 보이기
 
                 AlertDialog.Builder buider = new AlertDialog.Builder(this); //AlertDialog.Builder 객체 생성
-                buider.setTitle("Member Information"); //Dialog 제목
-                buider.setIcon(android.R.drawable.ic_menu_add); //제목옆의 아이콘 이미지(원하는 이미지 설정)
+                buider.setTitle("하루 마무리 하기"); //Dialog 제목
+                buider.setIcon(android.R.drawable.ic_dialog_alert); //제목옆의 아이콘 이미지(원하는 이미지 설정)
                 buider.setView(dialogView); //위에서 inflater가 만든 dialogView 객체 세팅 (Customize)
                 buider.setPositiveButton("Complite", new DialogInterface.OnClickListener() {
                     //Dialog에 "Complite"라는 타이틀의 버튼을 설정
@@ -147,6 +163,8 @@ public class MainActivity extends AppCompatActivity {
                         text.setText(str);
                         //TextView에 추가작업을 완료 하였기에 '완료'했다는 메세지를 Toast로 출력
                         Toast.makeText(MainActivity.this, "새로운 멤버를 추가했습니다", Toast.LENGTH_SHORT).show();
+
+
                     }
                 });
                 buider.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -173,7 +191,59 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }//switch
 
-    }//mOnClickMethod
+    }//mOnClickMethod   */
+
+//db method
+public void AddData() {
+    btnAddData.setOnClickListener(
+            new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    boolean isInserted = myDb.insertData(editName.getText().toString(),
+                            editSubname.getText().toString(),
+                            editMarks.getText().toString());
+
+                    if (isInserted = true)
+                        Toast.makeText(MainActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
+                    else
+                        Toast.makeText(MainActivity.this, "Data not Inserted", Toast.LENGTH_LONG).show();
+                }
+            }
+    );
+}
+
+    public void viewAll() {
+        btnviewAll.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Cursor res = myDb.getAllData();
+                        if (res.getCount() == 0) {
+                            //show error message
+                            showMessage("Error", "Nothing Found");
+                            return;
+                        }
+                        StringBuffer buffer = new StringBuffer();
+                        while (res.moveToNext()) {
+                            buffer.append("Id :" + res.getString(0) + "\n");
+                            buffer.append("Name :" + res.getString(1) + "\n");
+                            buffer.append("Subname :" + res.getString(2) + "\n");
+                            buffer.append("Marks :" + res.getString(3) + "\n\n");
+                        }
+                        //show all data
+                        showMessage("Data", buffer.toString());
+
+                    }
+                }
+        );
+    }
+    public void showMessage(String title, String Message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(Message);
+        builder.show();
+    }
 
 
     //alert dialog show

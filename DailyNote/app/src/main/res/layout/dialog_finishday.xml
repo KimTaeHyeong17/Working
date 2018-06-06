@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="250dp"
-    android:layout_height="wrap_content"
+    android:layout_height="300dp"
+    android:layout_marginTop="30dp"
+
     android:orientation="vertical"
     android:padding="5dp">
 
     <LinearLayout
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal"
         android:weightSum="5">
 
@@ -18,16 +20,18 @@
             android:layout_weight="1.5"
             android:gravity="center"
             android:text="한줄평"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            />
 
         <EditText
             android:id="@+id/dialog_edit"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3.5"
-            android:gravity="center"
+            android:textColor="#ffffff"
             android:textSize="15sp" />
     </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,8 +51,7 @@
             android:id="@+id/dialog_rg"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3.5"
-            android:orientation="vertical">
+            android:layout_weight="3.5">
 
             <RadioButton
                 android:id="@+id/dialog_rb_korea"
@@ -64,12 +67,6 @@
                 android:text="메이플만했다"
                 android:textSize="12sp" />
 
-            <RadioButton
-                android:id="@+id/dialog_rb_france"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="롤3연패했다"
-                android:textSize="12sp" />
 
             <RadioButton
                 android:id="@+id/dialog_rb_mexico"

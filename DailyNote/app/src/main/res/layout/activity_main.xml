@@ -115,13 +115,65 @@
 
         </LinearLayout>
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
 
         <TextView
-            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/editText_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subname"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/editText_subname"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marks"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/editText_Marks"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+
+
+</LinearLayout>
 
 
 
@@ -148,10 +200,11 @@
             android:textColor="@color/colorPrimary" />
 
         <Button
+            android:id="@+id/button_viewAll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#ffffff"
-            android:text="개발자소개"
+            android:text="Viewall"
             android:textColor="@color/colorPrimary" />
 
         <Button
@@ -179,14 +232,15 @@
   /> -->
 
     <Button
-        android:id="@+id/tmpbtn"
+        android:id="@+id/button_add"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_gravity="bottom"
         android:layout_marginBottom="30dp"
         android:layout_marginLeft="280dp"
-        android:background="@drawable/circle_border"
-        android:onClick="mOnClick" />
+        android:background="@drawable/circle_border"/>
+        <!--android:onClick="mOnClick"-->
+
 
 
 
