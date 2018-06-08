@@ -19,7 +19,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".Look_Back" />
         <activity android:name=".StartingActivity" />
-        <activity android:name=".Planning"></activity>
+        <activity android:name=".Planning" />
+        <activity android:name=".PastSchedule"></activity>
     </application>
 
 </manifest>

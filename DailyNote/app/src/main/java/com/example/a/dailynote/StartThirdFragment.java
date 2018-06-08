@@ -30,12 +30,22 @@ public class StartThirdFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_start_third, container, false);
 
         Button start = (Button) v.findViewById(R.id.btn_start);
+        Button skip = (Button) v.findViewById(R.id.btn_already);
 
         start.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Planning.class);
+                startActivity(intent);
+            }
+        });
+
+        skip.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
             }
         });
